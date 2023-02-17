@@ -1,0 +1,72 @@
+<div>
+    <table class="table" style=" border: 1px solid white; margin-top:70px ;box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" >
+        <thead>
+            <tr>
+                <th scope="col" style="text-align: center;">Student Name</th>
+                <th scope="col" style="text-align: center;">Age</th>
+                <th scope="col" style="text-align: center;">Course name</th>
+                <th scope="col" style="text-align: center;">Completion Year</th>  
+                <th scope="col" style="text-align: center;">Action</th>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let datas of studentarray" >
+                <td>{{datas.studentname}}</td>
+                <td>{{datas.age}}</td>
+                <td>{{datas.coursename}}</td> 
+                <td>{{datas.coursecompletionyear}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="updatestudent(datas._id,datas.studentname)"    >Update</button>
+                    <button class="btn btn-danger" (click)="deletestudent(datas._id)" style="margin-left: 10px;">Delete</button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button class="btn btn-success" (click)="addstudent()">Add student </button>
+</div>
+<div *ngIf="updatestudents==true" >
+    
+    <form style="width: 500px; margin-left: 500px;" (ngSubmit)="add()" >
+      <h3 style="margin-left: 200px;">Update student</h3>
+        <div class="form-outline mb-4">
+          <input type="text" id="form1Example1" class="form-control" formControlName="studentname"/>
+          <label class="form-label" for="form1Example1" >Student name</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form1Example1" class="form-control" formControlName="newstudentname" />
+            <label class="form-label" for="form1Example1">New Student name</label>
+          </div>
+      
+       
+        <div class="form-outline mb-4">
+          <input type="number" id="form1Example2" class="form-control" formControlName="newage" />
+          <label class="form-label" for="form1Example2">New Age</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form1Example2" class="form-control" formControlName="newcoursename"/>
+            <label class="form-label" for="form1Example2">New Course Name</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="number" id="form1Example2" class="form-control" formControlName="newcoursecompletionyear"/>
+            <label class="form-label" for="form1Example2" >New Course Completion Year</label>
+          </div>
+    
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+           
+           
+          </div>
+      
+          
+        </div>
+      
+        <button type="submit" style="margin-left: 250px;" class="btn btn-success btn-block">Add</button>
+      </form>
+</div>
+
